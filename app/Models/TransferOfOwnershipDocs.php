@@ -26,4 +26,8 @@ class TransferOfOwnershipDocs extends Model
 
 
     public $timestamps = true;
+
+    public function company(){
+        return $this->belongsTo(Company::class ,'company_id','id');
+    }
 }

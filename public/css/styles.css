@@ -1,176 +1,145 @@
-/* Center the form on the page */
-.registration-container {
-  max-width: 500px;
-  margin: 50px auto;
-  background: #fff;
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
+  line-height: 2.5;
+}
+
+#profile {
+  margin: 20px;
   padding: 20px;
+  background-color: #9b9b9b;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Notification Modal Styling */
-.modal-content {
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.modal-header {
-  background-color: #007bff;
-  color: white;
-  padding: 10px; /* Reduce padding */
-  font-size: 0.9rem; /* Reduce font size */
-  font-weight: normal; /* Make header less bold */
-}
-
-.modal-title {
-  font-size: 1rem; /* Smaller font for "Notification" */
-}
-
-.modal-body {
-  font-size: 1.1rem; /* Emphasize message font size */
-  color: #495057;
-  font-weight: bold; /* Make the message text bold */
-  padding: 20px;
-  text-align: center;
-}
-
-.modal-footer {
-  padding: 10px;
-}
-
-.modal-footer .btn-secondary {
-  background-color: #6c757d;
-}
-
-/* Add some spacing between form fields */
-.form-group {
+form div {
   margin-bottom: 15px;
 }
 
-/* Style for the primary buttons */
-.btn-primary {
-  width: 100%;
-  margin-top: 10px;
-}
-
-/* Hide the OTP and password fields initially */
-#otpSection, #passwordSection {
-  display: none;
-}
-
-/*************************************************************/
-
-/* Basic page styling */
-body {
-  background-color: #f8f9fa;
-  font-family: Arial, sans-serif;
-}
-
-.container {
-  margin-top: 20px;
-  padding: 20px;
-}
-
-/* Heading styling */
-h2 {
-  color: #007bff;
+label {
   font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
 }
 
-h3 {
-  color: #007bff;
-  font-weight: bold;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-/* Form styling */
-#transferForm .form-group label {
-  font-weight: bold;
-  color: #495057;
-}
-
-#transferForm .form-group input {
-  border-radius: 5px;
-  padding: 10px;
+input[readonly] {
+  background-color: #e9ecef;
   border: 1px solid #ced4da;
+  border-radius: 4px;
+  padding: 8px;
+  width: 100%;
 }
 
-#transferForm .form-group input:focus {
-  border-color: #007bff;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+input[type="text"], input[type="email"], input[type="password"] {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 14px;
 }
 
-/* Button styling */
-button {
-  font-weight: bold;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
+/* Buttons */
+button.edit-btn {
+  margin-top: 10px;
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button.edit-btn:hover {
+  background-color: #0056b3;
+}
+
+.btn {
+  padding: 10px 20px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 10px;
 }
 
 .btn-primary {
   background-color: #007bff;
   color: white;
-  padding: 10px 20px;
-  border: none;
 }
 
 .btn-primary:hover {
   background-color: #0056b3;
 }
 
-.btn-secondary {
-  background-color: #6c757d;
-  color: white;
-  padding: 8px 15px;
+/* Modal Styling */
+.admin_profile_modal {
+  
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
 }
 
-.btn-secondary:hover {
-  background-color: #5a6268;
+.modal-content {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 400px;
+  max-width: 90%;
 }
 
-.btn-success {
-  background-color: #28a745;
-  color: white;
-  padding: 10px 20px;
+.modal-content h6 {
+  margin-bottom: 20px;
+  font-size: 18px;
 }
 
-.btn-success:hover {
-  background-color: #218838;
+.modal-content form div {
+  margin-bottom: 15px;
 }
 
-/* Data and upload sections styling */
-.data-section, .upload-section {
-  padding: 15px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  background-color: #fff;
+.modal-content .btn {
+  width: 48%;
+  margin-right: 4%;
 }
 
-.data-card {
-  background-color: #f1f1f1;
-  border-radius: 5px;
-  padding: 10px;
-  margin-bottom: 10px;
+.modal-content .btn:last-child {
+  margin-right: 0;
 }
 
-.data-card h4 {
-  font-size: 1rem;
-  color: #333;
+/* Error State */
+input:invalid {
+  border-color: #dc3545;
 }
 
-/* Responsive styling */
+input:invalid:focus {
+  outline-color: #dc3545;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-  .container {
-      padding: 10px;
+  .modal-content {
+      width: 90%;
   }
 
-  button {
-      width: 100%;
-      margin-top: 10px;
+  form div {
+      display: flex;
+      flex-direction: column;
   }
 
-  #transferForm .form-group label {
-      font-size: 0.9rem;
+  form label {
+      margin-bottom: 5px;
   }
 }
+
+

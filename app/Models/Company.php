@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
+use App\Models\admin\Moodle\transfer_of_ownership_docs;
 
 class Company extends Authenticatable
 {
@@ -34,4 +35,8 @@ class Company extends Authenticatable
         $this->attributes['password'] = Hash::make($value);
     }
         */
+
+        public function transfardocs(){
+            return $this->hasMany(TransferOfOwnershipDocs::class,'company_id','id');
+        }
 }

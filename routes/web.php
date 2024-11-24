@@ -6,6 +6,49 @@ use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\TransferController;
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\admin\DashboardController;
+use App\Http\Controllers\Auth\LoginAdminController;
+use App\Http\Controllers\admin\profileController;
+
+
+
+
+Route::get('/login', [LoginAdminController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [LoginAdminController::class, 'login']);
+Route::post('/logout', [LoginAdminController::class, 'logout'])->name('logout');
+
+Route::group(['prefix'=> 'admin','middleware'=> ['auth:admin']], function () {
+    Route::get('/dashboard', [DashboardController::class,'view']);
+    //Dy content -----------------------------
+    Route::get('/profile', [DashboardController::class,'profile']);
+    //end Dy content ------------------------------
+    Route::post('/profile/updateName', [profileController::class,'updateName'])->name('admin.updateName');
+
+    Route::post('/profile/updateEmail', [profileController::class,'updateEmail'])->name('admin.updateEmail');
+
+   Route::post('/profile/change-password/updatepassword', [profileController::class, 'changePasswordUpdate'])->name('password.changeUpdate');
+   Route ::get('/tabDashboard', [DashboardController::class,'dashboard']);
+   Route ::get('/history', [DashboardController::class,'history']);
+   Route::get('/companies', [DashboardController::class,'companiesContent']);
+   Route::get('/clients', [DashboardController::class,'clientsContent']);
+   Route::get('/transferFilter', [DashboardController::class, 'transferFilterContent']);
+   Route::post('/transfers', [DashboardController::class, 'transferTable']);
+   Route::post('/transfers/contract', [DashboardController::class, 'showTransferContract']);
+
+
+
+
+   Route ::post('/companyDocsModel', [DashboardController::class,'companyDocsModel']);
+
+   
+
+
+
+});
+
+
+
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -16,9 +59,9 @@ Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->na
 
 
 
-Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
-Route::post('/login', [LoginController::class, 'login']);
-Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+// Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+// Route::post('/login', [LoginController::class, 'login']);
+// Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::post('/verify-otp-login', [LoginController::class, 'verifyOTP']);
 
 Route::get('/dashboard', function () {

@@ -10,7 +10,7 @@
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="notificationModalLabel">Notification</h5>
+                      <h5 class="modal-title" id="notificationModalLabel">Notification</h5>
                         <!-- Close button for modal -->
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
